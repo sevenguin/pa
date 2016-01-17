@@ -1,0 +1,14 @@
+#-*- coding:utf-8 -*-
+
+ERROR_NONE = 0
+ERROR_MODEL_QUERY_404=1000404     #前三位表示错误的模块，后四位是错误原因
+ERROR_PASSWOrD_WRONG=1000001
+ERROR_WAS_REGISTED=1000002
+ERROR_REGISTED_WRONG=1000003
+
+errcode2message={
+    ERROR_NONE: "成功",
+    ERROR_MODEL_QUERY_404:"数据不存在",
+    ERROR_PASSWOrD_WRONG:"用户名密码错误",
+    ERROR_WAS_REGISTED:"用户已经注册",
+    ERROR_REGISTED_WRONG:"用户注册失败"}
