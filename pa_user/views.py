@@ -8,6 +8,7 @@ from django.http import Http404
 from django.db.utils import IntegrityError
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.mail import send_mail
+from django.core.cache import cache
 
 from .models import t_user
 from pa.errorcode import *
@@ -83,3 +84,18 @@ def sendmail(request):
     #    'scuwjei@foxmail.com', ['853076607@qq.com'], fail_silently=False, 
     #    auth_user='scuwei@foxmail.com', auth_password='familysh@1')
     return HttpResponse(None)
+
+#test session and redis
+def setsession(request):
+    #cache.set('test_id', '3843384')
+    request.session[0] = 233
+    print('set id:%s, value:%s' % ('test_id', '3843384'))
+    print('do here')
+    return HttpResponse("None")
+
+def checksession(request):
+    #test_id = request.session['test_id']
+    test_id = cache.get('test_id')
+    print('test_id is: %s' % test_id)
+    return HttpResponse(None)
+

@@ -93,6 +93,29 @@ DATABASES = {
     }
 }
 
+# Caches
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+         'LOCATION': 'redis://127.0.0.1:6379',
+         'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+         }
+    }
+    #Set memcached
+    #'memcached':{
+    #    'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+    #    'LOCATION': '127.0.0.1:11211',
+    #}
+}
+REDIS_TIMEOUT = 7 * 24 * 60 * 60
+CUBES_REDIS_TIMEOUT = 60 * 60
+NEVER_REDIS_TIMEOUT = 365 * 24 * 60 * 60
+
+# Sessions set
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+#配置使用的cache名称
+SESSION_CACHE_ALIAS = 'default'
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
