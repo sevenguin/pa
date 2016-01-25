@@ -1,2 +1,8 @@
 settings.py
 .DS_Store
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+dist
+build
