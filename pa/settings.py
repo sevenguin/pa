@@ -141,8 +141,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 EMAIL_HOST='smtp.qq.com'
 EMAIL_PORT=587
-EMAIL_HOST_USER= ''
-EMAIL_HOST_PASSWORD= ''
+EMAIL_HOST_USER= 'scuwei@foxmail.com'#'privateassitance@foxmail.com'
+EMAIL_HOST_PASSWORD='11127' #'pa112355@2'
 EMAIL_USE_TLS=True
 #502的错是因为这个，但是不报错了，发邮件也没见成功啊
 MAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
