@@ -90,24 +90,27 @@ DATABASES = {
         'NAME': 'pa_user',
         'USER': 'root',
         'PASSWORD': '',
+        'HOST': '127.0.0.1:3306',
     }
 }
-
-# Caches
-CACHES = {
-    'default': {
-        'BACKEND': 'django_redis.cache.RedisCache',
-         'LOCATION': 'redis://127.0.0.1:6379',
-         'OPTIONS': {
-            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
-         }
-    }
-    #Set memcached
-    #'memcached':{
-    #    'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-    #    'LOCATION': '127.0.0.1:11211',
-    #}
-}
+#redis处理尚有问题，后续再跟踪
+# # Caches
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django_redis.cache.RedisCache',
+#          'LOCATION': 'redis://127.0.0.1:6379/0',
+#          'OPTIONS': {
+#             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+#             'SOCKET_CONNECT_TIMEOUT': 5,
+#             'SOCKET_TIMEOUT': 5,
+#          }
+#     }
+#     #Set memcached
+#     #'memcached':{
+#     #    'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+#     #    'LOCATION': '127.0.0.1:11211',
+#     #}
+# }
 REDIS_TIMEOUT = 7 * 24 * 60 * 60
 CUBES_REDIS_TIMEOUT = 60 * 60
 NEVER_REDIS_TIMEOUT = 365 * 24 * 60 * 60
@@ -137,11 +140,12 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 EMAIL_HOST='smtp.qq.com'
-EMAIL_PORT=25
-EMAIL_HOST_USER= 'scuwei@foxmail.com'
-EMAIL_HOST_PASSWORD='familysh@1'
+EMAIL_PORT=587
+EMAIL_HOST_USER= 'scuwei@foxmail.com'#'privateassitance@foxmail.com'
+EMAIL_HOST_PASSWORD='11127' #'pa112355@2'
+EMAIL_USE_TLS=True
 #502的错是因为这个，但是不报错了，发邮件也没见成功啊
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+MAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
@@ -162,4 +166,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-DATABASE_ROUTERS = ['pa.UserRouter.UserRouter']
+#DATABASE_ROUTERS = ['pa.UserRouter.UserRouter']

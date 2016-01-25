@@ -16,3 +16,11 @@ class t_user(models.Model):
             if not key.startswith('_'):
                 data[key] = value
         return data
+
+class t_userbaseinfo(models.Model):
+    userid = models.AutoField(primary_key=True)
+    everlived_place = models.CharField(max_length=2000)
+    dietary_pref = models.CharField(max_length=2000)  #饮食偏好
+    hometown = models.CharField(max_length=32)
+    dietary_forbi = models.CharField(max_length=2000) #饮食禁忌
+    mealtimes = models.CharField(max_length=521)  #就餐时间

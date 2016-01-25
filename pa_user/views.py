@@ -1,14 +1,16 @@
 #-*- coding:utf-8 -*-
 import time
 import random
+import pdb
 
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404
 from django.http import Http404
 from django.db.utils import IntegrityError
 from django.core.exceptions import ObjectDoesNotExist
-from django.core.mail import send_mail
+from django.core.mail import send_mail, get_connection
 from django.core.cache import cache
+from email.mime.text import MIMEText
 
 from .models import t_user
 from pa.errorcode import *
@@ -31,7 +33,7 @@ def login(request):
         else:
             code = ERROR_PASSWOrD_WRONG
     except Http404:
-        code = ERROR_MODEL_QUERY_404
+        code = ERROR_USER_QUERY_404
     finally:
         message = errcode2message.get(code, '错误信息不详')
     ret = {"code": code, "message":message, "data":data}
@@ -54,13 +56,20 @@ def generate_invitecode(code_len):
 def register(request):
     email = request.GET.get('email')
     password = request.GET.get('password')
+    verify_code_send = request.GET.get('verify_code')
+    verify_code = request.session[email+'_verifycode']
+    #print('key:', email+'_verifycode')
+
+    code = 0; data = {}
+    if verify_code != verify_code_send:
+        code = ERROR_VERIFYCODE_WRONG
+
     while True:
         invitecode = generate_invitecode(INVITECODE_LEN)   #需要有个函数生成invitecode
         try:
             t_user.objects.get(invitecode=invitecode)
         except ObjectDoesNotExist:
             break
-    code = 0; data = {}
     try:
         user = t_user.objects.create(email=email, password=password, nickname='', invitecode=invitecode)
         data = user.paramtodict()
@@ -76,26 +85,51 @@ def register(request):
     ret = {"code": code, "message":message, "data":data}
     return JsonResponse(ret)
 
-def sendmail(request):
+def sendverifycode(request):
     #generate code
-    verify_code = generate_invitecode(VERIFYCODE_LEN)
-    #sendmail the verify_code
-    #send_mail('test django mail', 'django mail object', 
-    #    'scuwjei@foxmail.com', ['853076607@qq.com'], fail_silently=False, 
-    #    auth_user='scuwei@foxmail.com', auth_password='familysh@1')
-    return HttpResponse(None)
+    code = 0
+    try:
+        email = request.GET.get('email')
+        verify_code = generate_invitecode(VERIFYCODE_LEN)
+        html = """\
+        <html>
+          <head></head>
+          <body>
+            <p>Hi!<br>
+               <b>%s</b><br>
+               这是您的注册码，30分钟有效哦【来自PA】.
+            </p>
+          </body>
+        </html>
+        """ % verify_code
+        msg = MIMEText(html, 'html')
+        msg['Subject'] = "PA注册验证码"
+        request.session[email+'_verifycode'] = verify_code
+        #print('key:', email+'_verifycode')
+        request.session.set_expiry(1800) #有效期30分钟
+        #sendmail the verify_code
+        send_mail(msg['Subject'], '', 
+            'scuwei@foxmail.com', [email,], fail_silently=False, 
+            html_message=html)
+    except:
+        code = ERROR_VERIFYCODE_GER_ERROR
+    ret = {'code': code, 'message':errcode2message.get(code, '错误信息不详'), 'data':None}
+    return HttpResponse(ret)
 
-#test session and redis
-def setsession(request):
-    #cache.set('test_id', '3843384')
-    request.session[0] = 233
-    print('set id:%s, value:%s' % ('test_id', '3843384'))
-    print('do here')
-    return HttpResponse("None")
+def setnickname(request):
+    nickname = request.GET.get('nickname')
+    userid = request.GET.get('userid')
+    code = 0
+    try:
+        record = t_user.objects.filter(userid=userid).update(nickname=nickname)
+    except:
+        code = ERROR_UPDATE_ERROR
 
-def checksession(request):
-    #test_id = request.session['test_id']
-    test_id = cache.get('test_id')
-    print('test_id is: %s' % test_id)
-    return HttpResponse(None)
+    ret = {'code':code, 'message':errcode2message.get(code, '错误信息不详'), 'data':None}
+    return JsonResponse(ret)
 
+def queryuserbaseinfo(request):
+    pass
+    code = 0
+    ret = {'code':code, 'message':errcode2message.get(code, '错误信息不详'), 'data':None}
+    return JsonResponse(ret)
