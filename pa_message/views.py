@@ -45,14 +45,14 @@ def sendmessage(request):
     message = t_messages(messageinfo=messageinfo, questionid=question_id, userid=userid)
     message.save()
     #通过question_id获得status_reg，然后通过message和status_reg来匹配获得status，再通过status和question_id获得下一个question_id
-    status_reg = question.status_reg
-    status = 0  #0表示无状态
-    for key, value in eval(status_reg).items():
-        # print('this is message')
-        # print(value, messageinfo)
-        if re.match(value, messageinfo):
-            status = key
-            break
+    #status_reg = question.status_reg
+    # status = 0  #0表示无状态
+    # for key, value in eval(status_reg).items():
+    #     # print('this is message')
+    #     # print(value, messageinfo)
+    #     if re.match(value, messageinfo):
+    #         status = key
+    #         break
     #print('key: %d, userid:%s' % (status, userid))
     return JsonResponse({'code': 0, 'message':'成功', 'data':{'questionid':question_id, \
                         'status': status, 'userid':userid}})

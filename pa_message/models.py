@@ -6,7 +6,8 @@ class t_questions(models.Model):
     questionid = models.AutoField(primary_key=True)
     topicid = models.IntegerField()
     question_info = models.CharField(max_length=2000)
-    status_reg = models.CharField(max_length=2000)
+    proc_module = models.CharField(max_length=64)
+    proc_func = models.CharField(max_length=64)
     answer_field = models.CharField(max_length=64, verbose_name="answer to field, like username")
     #models.CharField(max_length=2)
 
