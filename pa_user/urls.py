@@ -1,1 +1,0 @@
-#-*- coding:utf-8 -*-from django.conf.urls import urlfrom . import views#配置一个URL，后面都可以使用def schedule(request, action):	return getattr(views, action)(request)urlpatterns = [	url(r'^(?P<action>[a-zA-Z]+)/$', schedule, name='jump')]
