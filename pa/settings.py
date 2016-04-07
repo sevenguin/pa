@@ -25,7 +25,7 @@ SECRET_KEY = '0!=ur2ffa@@12435(dx8qy(m3wb$2fkv(%oi7&adj_ryufdp6&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1"]
 
 
 # Application definition
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pa_message',
+    'pa_manager',
     'pa_greeting',
     'pa_servant',
 ]
@@ -84,7 +84,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'pa',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'root',
         #'HOST': '127.0.0.1:3306',
     }
     # ,
@@ -114,6 +114,36 @@ DATABASES = {
 #     #    'LOCATION': '127.0.0.1:11211',
 #     #}
 # }
+
+LOGGING={
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'default':{
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        }
+    },
+    'handlers': {
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': 'info.log',
+            'formatter': 'default'
+        },
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'default'
+        }
+    },
+    'loggers':{
+        'django':{
+            'handlers': ['file', 'console'],
+            'level': 'INFO'
+        }
+    }
+}
+
 REDIS_TIMEOUT = 7 * 24 * 60 * 60
 CUBES_REDIS_TIMEOUT = 60 * 60
 NEVER_REDIS_TIMEOUT = 365 * 24 * 60 * 60
@@ -144,8 +174,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 EMAIL_HOST='smtp.qq.com'
 EMAIL_PORT=587
-EMAIL_HOST_USER= 'some@foxmail.com'#'privateassitance@foxmail.com'
-EMAIL_HOST_PASSWORD='some' #'pa112355@2' 
+EMAIL_HOST_USER= 'some@foxmail.com'
+EMAIL_HOST_PASSWORD='some'
 EMAIL_USE_TLS=True
 #502的错是因为这个，但是不报错了，发邮件也没见成功啊
 MAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

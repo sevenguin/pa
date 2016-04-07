@@ -1,0 +1,18 @@
+ERROR 2016-04-07 15:40:42,142 base 11608 12004 Internal Server Error: /greeting/question/
+Traceback (most recent call last):
+  File "E:\project\pa\pa_greeting\views.py", line 18, in question
+    'data': {'questionifo':cur_question['questionifo']}})
+KeyError: 'questionifo'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Anaconda3\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Anaconda3\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\project\pa\pa_greeting\urls.py", line 6, in schedule
+    return getattr(views, action)(request)
+  File "E:\project\pa\pa_greeting\views.py", line 20, in question
+    logger.error('error info:%s' % e.message)
+AttributeError: 'KeyError' object has no attribute 'message'

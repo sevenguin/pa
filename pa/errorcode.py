@@ -1,6 +1,7 @@
 #-*- coding:utf-8 -*-
 
 ERROR_NONE = 0
+ERROR_EXCEPT = -1
 ERROR_USER_QUERY_404=1000404     #前三位表示错误的模块，后四位是错误原因 100->User模块
 ERROR_PASSWOrD_WRONG=1000001
 ERROR_WAS_REGISTED=1000002
@@ -10,6 +11,7 @@ ERROR_UPDATE_ERROR = 100005
 
 errcode2message={
     ERROR_NONE: "成功",
+    ERROR_EXCEPT: "出现异常",
     ERROR_USER_QUERY_404:"用户不存在",
     ERROR_PASSWOrD_WRONG:"用户名密码错误",
     ERROR_WAS_REGISTED:"用户已经注册",
