@@ -16,3 +16,4 @@ Traceback (most recent call last):
   File "E:\project\pa\pa_greeting\views.py", line 20, in question
     logger.error('error info:%s' % e.message)
 AttributeError: 'KeyError' object has no attribute 'message'
+WARNING 2016-04-07 11:45:14,121 base 1324 123145318068224 Not Found: /favicon.ico
