@@ -66,3 +66,281 @@ Traceback (most recent call last):
   File "E:\project\pa\pa_manager\views.py", line 42, in response
     return JsonResponse({'code': code, 'message': errcode2message[code]})
 NameError: name 'errcode2message' is not defined
+ERROR 2016-04-08 16:49:23,603 base 6360 12156 Internal Server Error: /servant/response/
+Traceback (most recent call last):
+  File "C:\Anaconda3\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Anaconda3\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\project\pa\pa_servant\urls.py", line 6, in schedule
+    return getattr(views, action)(request)
+  File "E:\project\pa\pa_servant\views.py", line 5, in response
+    return HttpResponse(env)
+NameError: name 'env' is not defined
+ERROR 2016-04-08 17:09:01,485 base 1280 12916 Internal Server Error: /servant/response/
+Traceback (most recent call last):
+  File "C:\Anaconda3\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Anaconda3\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\project\pa\pa_servant\urls.py", line 6, in schedule
+    return getattr(views, action)(request)
+  File "E:\project\pa\pa_servant\views.py", line 14, in response
+    r = http.request('GET', url)
+  File "C:\Anaconda3\lib\site-packages\urllib3\request.py", line 69, in request
+    **urlopen_kw)
+  File "C:\Anaconda3\lib\site-packages\urllib3\request.py", line 90, in request_encode_url
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\Anaconda3\lib\site-packages\urllib3\poolmanager.py", line 165, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 578, in urlopen
+    chunked=chunked)
+  File "C:\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 362, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Anaconda3\lib\http\client.py", line 1083, in request
+    self._send_request(method, url, body, headers)
+  File "C:\Anaconda3\lib\http\client.py", line 1118, in _send_request
+    self.putrequest(method, url, **skips)
+  File "C:\Anaconda3\lib\http\client.py", line 960, in putrequest
+    self._output(request.encode('ascii'))
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 27-28: ordinal not in range(128)
+ERROR 2016-04-08 17:11:16,509 base 12516 11168 Internal Server Error: /servant/response/
+Traceback (most recent call last):
+  File "C:\Anaconda3\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Anaconda3\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\project\pa\pa_servant\urls.py", line 6, in schedule
+    return getattr(views, action)(request)
+  File "E:\project\pa\pa_servant\views.py", line 14, in response
+    r = http.request('GET', url)
+  File "C:\Anaconda3\lib\site-packages\urllib3\request.py", line 69, in request
+    **urlopen_kw)
+  File "C:\Anaconda3\lib\site-packages\urllib3\request.py", line 90, in request_encode_url
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\Anaconda3\lib\site-packages\urllib3\poolmanager.py", line 165, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 578, in urlopen
+    chunked=chunked)
+  File "C:\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 362, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Anaconda3\lib\http\client.py", line 1083, in request
+    self._send_request(method, url, body, headers)
+  File "C:\Anaconda3\lib\http\client.py", line 1118, in _send_request
+    self.putrequest(method, url, **skips)
+  File "C:\Anaconda3\lib\http\client.py", line 960, in putrequest
+    self._output(request.encode('ascii'))
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 27-28: ordinal not in range(128)
+ERROR 2016-04-08 17:11:43,176 base 12664 11744 Internal Server Error: /servant/response/
+Traceback (most recent call last):
+  File "C:\Anaconda3\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Anaconda3\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\project\pa\pa_servant\urls.py", line 6, in schedule
+    return getattr(views, action)(request)
+  File "E:\project\pa\pa_servant\views.py", line 15, in response
+    r = http.request('GET', url)
+  File "C:\Anaconda3\lib\site-packages\urllib3\request.py", line 69, in request
+    **urlopen_kw)
+  File "C:\Anaconda3\lib\site-packages\urllib3\request.py", line 90, in request_encode_url
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\Anaconda3\lib\site-packages\urllib3\poolmanager.py", line 165, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 578, in urlopen
+    chunked=chunked)
+  File "C:\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 362, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Anaconda3\lib\http\client.py", line 1083, in request
+    self._send_request(method, url, body, headers)
+  File "C:\Anaconda3\lib\http\client.py", line 1118, in _send_request
+    self.putrequest(method, url, **skips)
+  File "C:\Anaconda3\lib\http\client.py", line 960, in putrequest
+    self._output(request.encode('ascii'))
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 27-28: ordinal not in range(128)
+ERROR 2016-04-08 17:15:42,645 base 11152 12924 Internal Server Error: /servant/response/
+Traceback (most recent call last):
+  File "C:\Anaconda3\lib\site-packages\urllib3\connection.py", line 142, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "C:\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 67, in create_connection
+    for res in socket.getaddrinfo(host, port, 0, socket.SOCK_STREAM):
+  File "C:\Anaconda3\lib\socket.py", line 732, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11004] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 578, in urlopen
+    chunked=chunked)
+  File "C:\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 362, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Anaconda3\lib\http\client.py", line 1083, in request
+    self._send_request(method, url, body, headers)
+  File "C:\Anaconda3\lib\http\client.py", line 1128, in _send_request
+    self.endheaders(body)
+  File "C:\Anaconda3\lib\http\client.py", line 1079, in endheaders
+    self._send_output(message_body)
+  File "C:\Anaconda3\lib\http\client.py", line 911, in _send_output
+    self.send(msg)
+  File "C:\Anaconda3\lib\http\client.py", line 854, in send
+    self.connect()
+  File "C:\Anaconda3\lib\site-packages\urllib3\connection.py", line 167, in connect
+    conn = self._new_conn()
+  File "C:\Anaconda3\lib\site-packages\urllib3\connection.py", line 151, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x03AA3370>: Failed to establish a new connection: [Errno 11004] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Anaconda3\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Anaconda3\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\project\pa\pa_servant\urls.py", line 6, in schedule
+    return getattr(views, action)(request)
+  File "E:\project\pa\pa_servant\views.py", line 16, in response
+    r = http.request('GET', urllib.parse.quote(url))
+  File "C:\Anaconda3\lib\site-packages\urllib3\request.py", line 69, in request
+    **urlopen_kw)
+  File "C:\Anaconda3\lib\site-packages\urllib3\request.py", line 90, in request_encode_url
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\Anaconda3\lib\site-packages\urllib3\poolmanager.py", line 165, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 651, in urlopen
+    release_conn=release_conn, **response_kw)
+  File "C:\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 651, in urlopen
+    release_conn=release_conn, **response_kw)
+  File "C:\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 651, in urlopen
+    release_conn=release_conn, **response_kw)
+  File "C:\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 623, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "C:\Anaconda3\lib\site-packages\urllib3\util\retry.py", line 281, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='http%3A', port=80): Max retries exceeded with url: //api.map.baidu.com/place/v2/search%3Fquery%3D%E7%BE%8E%E9%A3%9F%26location%3D39.915%2C116.404%EF%BC%86radius%3D2000%26output%3Djson%26ak%3D9dcshuKtvdMRPIKiOS9qZtc7 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x03AA3370>: Failed to establish a new connection: [Errno 11004] getaddrinfo failed',))
+ERROR 2016-04-08 17:17:39,221 base 13072 4820 Internal Server Error: /servant/response/
+Traceback (most recent call last):
+  File "C:\Anaconda3\lib\site-packages\urllib3\connection.py", line 142, in _new_conn
+    (self.host, self.port), self.timeout, **extra_kw)
+  File "C:\Anaconda3\lib\site-packages\urllib3\util\connection.py", line 67, in create_connection
+    for res in socket.getaddrinfo(host, port, 0, socket.SOCK_STREAM):
+  File "C:\Anaconda3\lib\socket.py", line 732, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11004] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 578, in urlopen
+    chunked=chunked)
+  File "C:\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 362, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Anaconda3\lib\http\client.py", line 1083, in request
+    self._send_request(method, url, body, headers)
+  File "C:\Anaconda3\lib\http\client.py", line 1128, in _send_request
+    self.endheaders(body)
+  File "C:\Anaconda3\lib\http\client.py", line 1079, in endheaders
+    self._send_output(message_body)
+  File "C:\Anaconda3\lib\http\client.py", line 911, in _send_output
+    self.send(msg)
+  File "C:\Anaconda3\lib\http\client.py", line 854, in send
+    self.connect()
+  File "C:\Anaconda3\lib\site-packages\urllib3\connection.py", line 167, in connect
+    conn = self._new_conn()
+  File "C:\Anaconda3\lib\site-packages\urllib3\connection.py", line 151, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x037C3370>: Failed to establish a new connection: [Errno 11004] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Anaconda3\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Anaconda3\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\project\pa\pa_servant\urls.py", line 6, in schedule
+    return getattr(views, action)(request)
+  File "E:\project\pa\pa_servant\views.py", line 16, in response
+    r = http.request('GET', urllib.parse.quote(url))
+  File "C:\Anaconda3\lib\site-packages\urllib3\request.py", line 69, in request
+    **urlopen_kw)
+  File "C:\Anaconda3\lib\site-packages\urllib3\request.py", line 90, in request_encode_url
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\Anaconda3\lib\site-packages\urllib3\poolmanager.py", line 165, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 651, in urlopen
+    release_conn=release_conn, **response_kw)
+  File "C:\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 651, in urlopen
+    release_conn=release_conn, **response_kw)
+  File "C:\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 651, in urlopen
+    release_conn=release_conn, **response_kw)
+  File "C:\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 623, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "C:\Anaconda3\lib\site-packages\urllib3\util\retry.py", line 281, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='http%3A', port=80): Max retries exceeded with url: //api.map.baidu.com/place/v2/search%3Fquery%3D%E7%BE%8E%E9%A3%9F%26location%3D39.915%2C116.404%EF%BC%86radius%3D2000%26output%3Djson%26ak%3D9dcshuKtvdMRPIKiOS9qZtc7 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x037C3370>: Failed to establish a new connection: [Errno 11004] getaddrinfo failed',))
+ERROR 2016-04-08 17:17:56,388 base 12976 12244 Internal Server Error: /servant/response/
+Traceback (most recent call last):
+  File "C:\Anaconda3\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Anaconda3\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\project\pa\pa_servant\urls.py", line 6, in schedule
+    return getattr(views, action)(request)
+  File "E:\project\pa\pa_servant\views.py", line 12, in response
+    'radius=2000&output=json&ak=' + BAIDU_MAP_AK
+TypeError: 'module' object is not callable
+ERROR 2016-04-08 17:18:34,340 base 13144 12788 Internal Server Error: /servant/response/
+Traceback (most recent call last):
+  File "C:\Anaconda3\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Anaconda3\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\project\pa\pa_servant\urls.py", line 6, in schedule
+    return getattr(views, action)(request)
+  File "E:\project\pa\pa_servant\views.py", line 16, in response
+    r = http.request('GET', url)
+  File "C:\Anaconda3\lib\site-packages\urllib3\request.py", line 69, in request
+    **urlopen_kw)
+  File "C:\Anaconda3\lib\site-packages\urllib3\request.py", line 90, in request_encode_url
+    return self.urlopen(method, url, **extra_kw)
+  File "C:\Anaconda3\lib\site-packages\urllib3\poolmanager.py", line 165, in urlopen
+    response = conn.urlopen(method, u.request_uri, **kw)
+  File "C:\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 578, in urlopen
+    chunked=chunked)
+  File "C:\Anaconda3\lib\site-packages\urllib3\connectionpool.py", line 362, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Anaconda3\lib\http\client.py", line 1083, in request
+    self._send_request(method, url, body, headers)
+  File "C:\Anaconda3\lib\http\client.py", line 1118, in _send_request
+    self.putrequest(method, url, **skips)
+  File "C:\Anaconda3\lib\http\client.py", line 960, in putrequest
+    self._output(request.encode('ascii'))
+UnicodeEncodeError: 'ascii' codec can't encode character '\uff06' in position 69: ordinal not in range(128)
+ERROR 2016-04-08 17:19:57,661 base 13120 12016 Internal Server Error: /servant/response/
+Traceback (most recent call last):
+  File "C:\Anaconda3\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Anaconda3\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\project\pa\pa_servant\urls.py", line 6, in schedule
+    return getattr(views, action)(request)
+  File "E:\project\pa\pa_servant\views.py", line 24, in response
+    return JsonResponse(r.data)
+  File "C:\Anaconda3\lib\site-packages\django\http\response.py", line 500, in __init__
+    raise TypeError('In order to allow non-dict objects to be '
+TypeError: In order to allow non-dict objects to be serialized set the safe parameter to False
+ERROR 2016-04-08 17:21:54,477 base 6564 9164 Internal Server Error: /servant/response/
+Traceback (most recent call last):
+  File "C:\Anaconda3\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Anaconda3\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\project\pa\pa_servant\urls.py", line 6, in schedule
+    return getattr(views, action)(request)
+  File "E:\project\pa\pa_servant\views.py", line 28, in response
+    return JsonResponse(r.data)
+  File "C:\Anaconda3\lib\site-packages\django\http\response.py", line 500, in __init__
+    raise TypeError('In order to allow non-dict objects to be '
+TypeError: In order to allow non-dict objects to be serialized set the safe parameter to False

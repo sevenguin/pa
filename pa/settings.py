@@ -27,7 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["127.0.0.1"]
 
-
+BAIDUMAP_SEARCH_BASE = r"http://api.map.baidu.com/place/v2/search"
+BAIDU_MAP_AK = "9dcshuKtvdMRPIKiOS9qZtc7"
 # Application definition
 
 INSTALLED_APPS = [
