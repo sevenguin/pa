@@ -46,18 +46,22 @@ def welcome(request):
         answerinfo = request.GET.get('answer')
         cur_question = questions['greeting'][questionid]
         next_q_base = models['greeting'][questionid]
+        status = answer_to_status(questionid, answerinfo)
         nextid = -1
+        next_model = __package__[3:]
         if cur_question['answer_type'] != 'choice':
             next_question = questions[next_q_base['next_question_model']][next_q_base['next_question']]
-            nextid = next_q_base['next_question'] 
-        status = answer_to_status(questionid, answerinfo)
-        next_question = questions[next_q_base[status]['next_question_model']][next_q_base[status]['next_question']]
-        nextid = next_q_base[status]['next_question']
+            nextid = next_q_base['next_question']
+        else:
+            next_question = questions[next_q_base[status]['next_question_model']][next_q_base[status]['next_question']]
+            nextid = next_q_base[status]['next_question']
+            next_model = next_q_base[status]['next_question_model']
         logger.error(next_question)
         code = 0
         return JsonResponse({'code': code, 'message': errcode2message[code], \
                              'data': {'questionifo': next_question['questioninfo'],
-                                      'questionid': nextid}})
+                                      'questionid': nextid,
+                                      'questoinmodel': next_model}})
     except Exception as e:
         code = -1
         logger.error('error info:%s' % e.args)

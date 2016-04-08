@@ -17,3 +17,52 @@ Traceback (most recent call last):
     logger.error('error info:%s' % e.message)
 AttributeError: 'KeyError' object has no attribute 'message'
 WARNING 2016-04-07 11:45:14,121 base 1324 123145318068224 Not Found: /favicon.ico
+WARNING 2016-04-08 15:16:16,548 base 10772 1480 Not Found: /favicon.ico
+WARNING 2016-04-08 15:16:17,467 base 10772 10452 Not Found: /favicon.ico
+ERROR 2016-04-08 15:44:18,258 base 8176 12616 Internal Server Error: /manager/response/
+Traceback (most recent call last):
+  File "E:\project\pa\pa_manager\views.py", line 19, in response
+    cur_question = questions['manager'][questionid]
+NameError: name 'questions' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Anaconda3\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Anaconda3\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\project\pa\pa_manager\urls.py", line 6, in schedule
+    return getattr(views, action)(request)
+  File "E:\project\pa\pa_manager\views.py", line 40, in response
+    traceback.print_exc()
+NameError: name 'traceback' is not defined
+ERROR 2016-04-08 15:44:31,476 base 8176 10220 Internal Server Error: /manager/response/
+Traceback (most recent call last):
+  File "E:\project\pa\pa_manager\views.py", line 19, in response
+    userid = 0
+NameError: name 'questions' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Anaconda3\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Anaconda3\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\project\pa\pa_manager\urls.py", line 6, in schedule
+    return getattr(views, action)(request)
+  File "E:\project\pa\pa_manager\views.py", line 40, in response
+    logger.error('error info:%s' % e.args)
+NameError: name 'traceback' is not defined
+ERROR 2016-04-08 15:44:39,925 base 12788 13308 Internal Server Error: /manager/response/
+Traceback (most recent call last):
+  File "C:\Anaconda3\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Anaconda3\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\project\pa\pa_manager\urls.py", line 6, in schedule
+    return getattr(views, action)(request)
+  File "E:\project\pa\pa_manager\views.py", line 42, in response
+    return JsonResponse({'code': code, 'message': errcode2message[code]})
+NameError: name 'errcode2message' is not defined

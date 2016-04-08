@@ -4,6 +4,8 @@
 """
 #问题需要有一些补充数据的文件，例如：各个地方的小吃？
 #还有自己喜欢的吃食等
+#让用户选直观的东西，而不是让用户做题，例如：不去问用户喜欢吃什么口味，而是直接给菜让用户选
+#让后我们自己根据菜去对用户分类
 questions = {
     'greeting':{
         '0':{
@@ -35,6 +37,16 @@ questions = {
             'proc_model': 'pa_manager',     #处理回答该问题的模块
             'answer_type': 'text',  
             'answer_value': 'None'    #只有当answer_type是choice的时候，这个才是选择的列表例如是、否   
+        },
+        '3':{
+            'questioninfo':'可以开始您的任务了',
+            'answer_table':'None',
+            'answer_field':'None',
+            'topicid': '1', #1表示机器主动发送
+            'proc_func': 'response',  #处理回答该问题的方法  
+            'proc_model': 'pa_sevant',     #处理回答该问题的模块
+            'answer_type': 'text',  
+            'answer_value': 'None'    #只有当answer_type是choice的时候，这个才是选择的列表例如是、否 
         }
     },
     'manager':{
@@ -124,6 +136,22 @@ models = {
         '1':{
             'next_question_model': 'manager',
             'next_question': '2'
+        },
+        '2':{
+            'next_question_model': 'manager',
+            'next_question': '3'
+        },
+        '3':{
+            'next_question_model': 'manager',
+            'next_question': '4'
+        },
+        '4':{
+            'next_question_model': 'manager',
+            'next_question': '5'
+        },
+        '5':{
+            'next_question_model': 'greeting',
+            'next_question': '3'
         }
     }
 }
