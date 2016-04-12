@@ -344,3 +344,41 @@ Traceback (most recent call last):
   File "C:\Anaconda3\lib\site-packages\django\http\response.py", line 500, in __init__
     raise TypeError('In order to allow non-dict objects to be '
 TypeError: In order to allow non-dict objects to be serialized set the safe parameter to False
+WARNING 2016-04-12 14:18:31,959 base 1369 123145318068224 Not Found: /favicon.ico
+ERROR 2016-04-12 14:18:57,103 base 1391 123145312813056 Internal Server Error: /servant/response/
+Traceback (most recent call last):
+  File "/Users/weill/anaconda/lib/python3.5/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/weill/anaconda/lib/python3.5/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/weill/Project/PrivateAssistant/server/pa/pa_servant/urls.py", line 6, in schedule
+    return getattr(views, action)(request)
+  File "/Users/weill/Project/PrivateAssistant/server/pa/pa_servant/views.py", line 27, in response
+    return JsonResponse(r.data)
+  File "/Users/weill/anaconda/lib/python3.5/site-packages/django/http/response.py", line 500, in __init__
+    raise TypeError('In order to allow non-dict objects to be '
+TypeError: In order to allow non-dict objects to be serialized set the safe parameter to False
+ERROR 2016-04-12 14:25:47,910 base 1541 123145312813056 Internal Server Error: /servant/response/
+Traceback (most recent call last):
+  File "/Users/weill/anaconda/lib/python3.5/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/weill/anaconda/lib/python3.5/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/weill/Project/PrivateAssistant/server/pa/pa_servant/urls.py", line 6, in schedule
+    return getattr(views, action)(request)
+  File "/Users/weill/Project/PrivateAssistant/server/pa/pa_servant/views.py", line 29, in response
+    return JsonResponse(retinfo)
+  File "/Users/weill/anaconda/lib/python3.5/site-packages/django/http/response.py", line 500, in __init__
+    raise TypeError('In order to allow non-dict objects to be '
+TypeError: In order to allow non-dict objects to be serialized set the safe parameter to False
+ERROR 2016-04-12 14:35:57,964 base 1770 123145312813056 Internal Server Error: /servant/response/
+Traceback (most recent call last):
+  File "/Users/weill/anaconda/lib/python3.5/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/weill/anaconda/lib/python3.5/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/weill/Project/PrivateAssistant/server/pa/pa_servant/urls.py", line 6, in schedule
+    return getattr(views, action)(request)
+  File "/Users/weill/Project/PrivateAssistant/server/pa/pa_servant/views.py", line 32, in response
+    message = errcode2message(code)
+TypeError: 'dict' object is not callable
